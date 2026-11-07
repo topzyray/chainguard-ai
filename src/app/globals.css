@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f5f7;
+  --foreground: #16181d;
+  --panel: #ffffff;
+  --inset: #f7f8fa;
+  --line: #e3e5ea;
+  --muted: #5f6773;
+  --accent: #17191f;
+  --accent-hover: #2c3038;
+  --accent-foreground: #f7f8fa;
+  --danger: #b42318;
+  --danger-bg: #fef3f2;
+  --warning: #8a5a00;
+  --warning-bg: #fff8eb;
+  --success: #067647;
+  --success-bg: #ecfdf3;
+  --link: #1d4f91;
+  --shadow: 0 1px 2px rgba(20, 22, 28, 0.05);
+  color-scheme: light;
+}
+
+.dark {
+  --background: #101114;
+  --foreground: #f3f4f6;
+  --panel: #181a20;
+  --inset: #12141a;
+  --line: #2c303a;
+  --muted: #a1a8b5;
+  --accent: #f3f4f6;
+  --accent-hover: #e4e6ea;
+  --accent-foreground: #16181d;
+  --danger: #f0a8a4;
+  --danger-bg: #3a1d1c;
+  --warning: #e7c27a;
+  --warning-bg: #3a2e16;
+  --success: #8ed0aa;
+  --success-bg: #163024;
+  --link: #9ec0ef;
+  --shadow: none;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-inset: var(--inset);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-link: var(--link);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility shadow-card {
+  box-shadow: var(--shadow);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--foreground) 14%, transparent);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
 }
